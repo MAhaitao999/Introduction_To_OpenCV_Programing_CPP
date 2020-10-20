@@ -60,7 +60,7 @@ void on_ThreshChange(int, void*) {
     
     // 绘出轮廓
     Mat drawing = Mat::zeros(g_cannyMat_output.size(), CV_8UC3);
-    for (int i=0; i < g_vContours.size(); i++) {
+    for (unsigned int i=0; i < g_vContours.size(); i++) {
         Scalar color = Scalar(g_rng.uniform(0, 255), g_rng.uniform(0, 255), g_rng.uniform(0, 255)); // 任意值
         drawContours(drawing, g_vContours, i, color, 2, 8, g_vHierarchy, 0, Point());
     }
