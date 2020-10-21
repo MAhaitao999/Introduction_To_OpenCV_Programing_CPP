@@ -13,9 +13,9 @@ int main(int argc, char *argv[]) {
     Mat hsvImage_halfDown;
 
     // [2] 载入基准图像(srcImage_base)和两张测试图像srcImage_test1、srcImage_test2, 并显示
-    srcImage_base = imread("cat1.jpg", 1);
-    srcImage_test1 = imread("cat2.jpg", 1);
-    srcImage_test2 = imread("cat3.jpg", 1);
+    srcImage_base = imread("1.jpg", 1);
+    srcImage_test1 = imread("2.jpg", 1);
+    srcImage_test2 = imread("3.jpg", 1);
 
     // 显示载入的3张图像
     imshow("基准图像", srcImage_base);
@@ -70,12 +70,14 @@ int main(int argc, char *argv[]) {
 	double base_half = compareHist(baseHist, halfDownHist, compare_method);
 	double base_test1 = compareHist(baseHist, testHist1, compare_method);
 	double base_test2 = compareHist(baseHist, testHist2, compare_method);
+        
+        // 输出结果
+        printf("方法 [%d] 的匹配结果如下: \n\n [基准图-基准图]: %f, [基准图-半身图]: %f, [基准图-测试图1]: %f, [基准图-测试图2]: %f\n ---------------------", i, base_base, base_half, base_test1, base_test2);
     }
 
-    // 输出结果
-    printf("方法 [%d] 的匹配结果如下: \n\n [基准图-基准图]")
-
-
+    printf("检测结束. ");
+    waitKey(0);
 
     return 0;
+
 }
